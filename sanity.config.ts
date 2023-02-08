@@ -10,7 +10,7 @@ export default defineConfig<Config>({
   dataset,
   projectId,
   schema,
-  title: 'Next.js Template',
+  title: 'Zwirner Gallery Website',
 
   plugins: [deskTool(), visionTool()],
 })
