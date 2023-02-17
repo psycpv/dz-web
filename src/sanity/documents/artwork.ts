@@ -5,6 +5,7 @@ import drawing from '../objects/artTypes/drawing'
 import painting from '../objects/artTypes/painting'
 import photograph from '../objects/artTypes/photograph'
 import sculpture from '../objects/artTypes/sculpture'
+import dateSelection from '../objects/utils/dateSelection'
 import artistType from './artist'
 
 // Check If we will need prefilled fields
@@ -33,9 +34,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'date',
       title: 'Date',
-      type: 'date',
+      name: 'dateSelection',
+      type: dateSelection.name,
     }),
     defineField({
       name: 'artworksEdition',
@@ -65,6 +66,32 @@ export default defineType({
         defineArrayMember({ type: photograph.name }),
         defineArrayMember({ type: sculpture.name }),
       ],
+    }),
+    defineField({
+      name: 'medium',
+      title: 'Medium',
+      type: 'string',
+    }),
+    defineField({
+      name: 'edition',
+      title: 'Edition',
+      type: 'string',
+    }),
+    defineField({
+      name: 'dimensions',
+      title: 'Dimensions',
+      type: 'string',
+    }),
+    defineField({
+      name: 'availability',
+      title: 'Availability',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Available', value: 'available'},
+          {title: 'Unavailable', value: 'unavailable'}
+        ],
+      }
     }),
   ],
   preview: {

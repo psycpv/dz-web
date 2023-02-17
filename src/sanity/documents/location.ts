@@ -1,5 +1,7 @@
-import { defineField, defineType } from 'sanity'
 import { PinIcon } from '@sanity/icons'
+import { defineField, defineType } from 'sanity'
+
+import addressType from '../objects/utils/address'
 
 // create hours schema
 export default defineType({
@@ -15,9 +17,9 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'address',
       title: 'Address',
-      type: 'text',
+      name: 'address',
+      type: addressType.name,
       validation: (rule) => rule.required(),
     }),
     defineField({

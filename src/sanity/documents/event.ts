@@ -1,5 +1,7 @@
-import { defineType, defineField } from 'sanity'
 import {TagIcon} from '@sanity/icons'
+import {defineField,defineType} from 'sanity'
+
+import dateSelection from '../objects/utils/dateSelection'
 import locationType from './location'
 
 // check timezone
@@ -15,27 +17,21 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'startDate',
-      title: 'Start date',
-      type: 'datetime',
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'endDate',
-      title: 'End date',
-      type: 'datetime',
+      name: 'dateSelection',
+      title: 'Dates',
+      type: dateSelection.name,
     }),
     defineField({
       name: 'eventPhotos',
       title: 'Event photos',
       type: 'image',
-      options: { hotspot: true },
+      options: {hotspot: true},
     }),
     defineField({
       name: 'eventLocation',
       title: 'Location',
       type: 'reference',
-      to: [{ type: locationType.name }],
+      to: [{type: locationType.name}],
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -44,14 +40,14 @@ export default defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'Preview', value: 'preview' },
-          { title: 'Book signing', value: 'book-signing' },
-          { title: 'Opening', value: 'opening' },
-          { title: 'Exhibition', value: 'exhibition' },
-          { title: 'Fair', value: 'fair' },
-          { title: 'Popup', value: 'popup' },
-        ]
+          {title: 'Preview', value: 'preview'},
+          {title: 'Book signing', value: 'book-signing'},
+          {title: 'Opening', value: 'opening'},
+          {title: 'Exhibition', value: 'exhibition'},
+          {title: 'Fair', value: 'fair'},
+          {title: 'Popup', value: 'popup'},
+        ],
       },
     }),
-  ]
+  ],
 })

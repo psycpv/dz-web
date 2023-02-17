@@ -1,9 +1,10 @@
-import { defineType, defineField, defineArrayMember } from 'sanity'
-import { DashboardIcon } from '@sanity/icons'
+import {DashboardIcon} from '@sanity/icons'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
-import eventType from './event'
+import artistType from './artist'
 import artworkType from './artwork'
 import collectionType from './collection'
+import eventType from './event'
 
 export default defineType({
   name: 'exhibition',
@@ -17,6 +18,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+    defineField({
       name: 'summary',
       title: 'Summary',
       type: 'text',
@@ -25,7 +31,7 @@ export default defineType({
       name: 'exhibitionDescription',
       title: 'Description',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{type: 'block'}],
     }),
     defineField({
       name: 'events',
@@ -34,7 +40,7 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{ type: eventType.name }],
+          to: [{type: eventType.name}],
         }),
       ],
     }),
@@ -55,7 +61,7 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [{ type: artworkType.name }],
+          to: [{type: artworkType.name}],
         }),
       ],
     }),
@@ -66,9 +72,20 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [ {type: collectionType.name}],
+          to: [{type: collectionType.name}],
         }),
-      ]
-    })
+      ],
+    }),
+    defineField({
+      name: 'artists',
+      title: 'Artists',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{type: artistType.name}],
+        }),
+      ],
+    }),
   ],
 })

@@ -1,24 +1,26 @@
 import {SchemaTypeDefinition} from 'sanity'
 
 import heroType from './components/header/hero'
+import artist from './documents/artist'
+import artwork from './documents/artwork'
+import authorType from './documents/author'
+import bookType from './documents/book'
+import collection from './documents/collection'
+import event from './documents/event'
+import exhibition from './documents/exhibition'
+import locationType from './documents/location'
+import pageType from './documents/page'
+import postType from './documents/post'
 import drawingType from './objects/artTypes/drawing'
 import paintingType from './objects/artTypes/painting'
 import photographType from './objects/artTypes/photograph'
 import sculptureType from './objects/artTypes/sculpture'
 import accessibleImage from './objects/utils/accessibleImage'
-import artist from './pages/artist'
-import artwork from './pages/artwork'
-import authorType from './pages/author'
-import bookType from './pages/book'
-import collection from './pages/collection'
-import event from './pages/event'
-import exhibition from './pages/exhibition'
-import locationType from './pages/location'
-import pageType from './pages/page'
-import postType from './pages/post'
+import addressType from './objects/utils/address'
+import dateRange from './objects/utils/dateRange'
+import dateSelection from './objects/utils/dateSelection'
 
 export const previewTypes = [artwork.name, postType.name]
-
 
 export const schema: {types: SchemaTypeDefinition[]} = {
   types: [
@@ -38,5 +40,8 @@ export const schema: {types: SchemaTypeDefinition[]} = {
     postType,
     authorType,
     accessibleImage,
+    dateRange,
+    dateSelection,
+    addressType,
   ],
 }
