@@ -1,5 +1,6 @@
-import { defineField, defineType } from 'sanity'
 import {BookIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
+
 import artistType from './artist'
 import author from './author'
 
@@ -23,7 +24,7 @@ export default defineType({
         {
           type: 'reference',
           title: 'Artist',
-          to: [{ type: artistType.name }],
+          to: [{type: artistType.name}],
         },
       ],
     }),
@@ -35,7 +36,7 @@ export default defineType({
         {
           type: 'reference',
           title: 'Author',
-          to: [{ type: author.name }],
+          to: [{type: author.name}],
         },
       ],
     }),
@@ -60,7 +61,7 @@ export default defineType({
       name: 'description',
       title: 'Description, body',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{type: 'block'}],
     }),
     defineField({
       name: 'publishDate',
@@ -73,8 +74,8 @@ export default defineType({
       type: 'number',
       title: 'Price',
       validation: (rule) => rule.required(),
-      readOnly: ({ currentUser }) => {
-        return !currentUser.roles.find(({ name }) => name === 'administrator')
+      readOnly: ({currentUser}) => {
+        return !currentUser?.roles.find(({name}) => name === 'administrator')
       },
     }),
   ],

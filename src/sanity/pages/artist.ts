@@ -1,5 +1,5 @@
-import { UserIcon } from '@sanity/icons'
-import { defineField, defineType } from 'sanity'
+import {UserIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'artist',
@@ -34,13 +34,13 @@ export default defineType({
       name: 'description2',
       title: 'Description, bio',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [{type: 'block'}],
     }),
     defineField({
       name: 'picture',
       title: 'Profile picture',
       type: 'image',
-      options: { hotspot: true },
+      options: {hotspot: true},
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -67,13 +67,13 @@ export default defineType({
       title: 'Artist photos',
       name: 'photos',
       type: 'array',
-      of: [{ type: 'image' }],
+      of: [{type: 'image'}],
     }),
     defineField({
       name: 'affiliation',
       type: 'boolean',
-      readOnly: ({ currentUser }) => {
-        return !currentUser.roles.find(({ name }) => name === 'administrator')
+      readOnly: ({currentUser}) => {
+        return !currentUser?.roles.find(({name}) => name === 'administrator')
       },
       title: 'Affiliated to DZ',
       initialValue: false,
