@@ -19,6 +19,7 @@ import postType from './pages/post'
 
 export const previewTypes = [artwork.name, postType.name]
 
+
 export const schema: {types: SchemaTypeDefinition[]} = {
   types: [
     heroType,
