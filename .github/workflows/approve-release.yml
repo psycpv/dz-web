@@ -89,7 +89,7 @@ jobs:
           echo "value=$MESSAGE" >> $GITHUB_OUTPUT
 
       - name: Send message
-        uses: slackapi/slack-github-action@v1.24.0
+        uses: slackapi/slack-github-action@v1.25.0
         env:
           SLACK_BOT_TOKEN: ${{ secrets.RELEASE_WATCHER_BOT_TOKEN }}
         with:
@@ -122,7 +122,7 @@ jobs:
           echo "value=$MESSAGE" >> $GITHUB_OUTPUT
 
       - name: Send message
-        uses: slackapi/slack-github-action@v1.24.0
+        uses: slackapi/slack-github-action@v1.25.0
         env:
           SLACK_BOT_TOKEN: ${{ secrets.RELEASE_WATCHER_BOT_TOKEN }}
         with:
