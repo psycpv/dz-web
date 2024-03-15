@@ -42,7 +42,7 @@ jobs:
           git tag $VERSION && git push origin $VERSION
 
       - name: Create GitHub pre-release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         id: pre_release
         with:
           tag_name: ${{ steps.new_version.outputs.value }}
